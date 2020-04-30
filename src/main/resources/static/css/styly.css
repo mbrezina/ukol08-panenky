@@ -1,0 +1,301 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: hsl(251, 32%, 34%);
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    width: 100%;
+    min-width: 250px;
+    margin: 0;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+    margin: 0;
+    min-width: 250px;
+    color: #ad6bff;
+    background: rgba(173, 107, 255, 0.2);
+    font-size: 3rem;
+}
+
+h1 > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navigace {
+    display: inline-block;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 1rem;
+    min-width: 250px;
+    background: rgba(173, 107, 255, 1);
+    overflow: visible;
+}
+
+.navigace li {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.navigace li:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.navigace a {
+    text-decoration: none;
+}
+
+main {
+    padding: 1rem;
+}
+
+h2 {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    color: hsl(245, 30%, 56%);
+    font-size: 2rem;
+}
+
+.seznam {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+.polozka {
+    padding: 0.5rem;
+    padding-bottom: calc(0.5rem + 10px);
+    margin: 0.5rem;
+    border-radius: 5px;
+    box-shadow: rgba(69, 59, 114, 0.5) 3px 3px 20px;
+}
+
+.polozka h3, .polozka p {
+    margin: 0;
+}
+
+.button{
+    display: block;
+    position: relative;
+    top: 10px;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: inherit;
+    background: rgba(173, 107, 255, 0.8);
+    border: 3px solid #ad6bff;
+    border-radius: 5px;
+}
+
+.button:hover {
+    color: white;
+    background: rgba(115, 84, 176, 0.8);
+    border: 3px solid #8a52ca;
+}
+
+.obrazek {
+    position: relative;
+    /*tento parametr meni velikost obrazku a tim i cele polozky*/
+    height: 400px;
+}
+
+.obrazek img {
+    height: 100%;
+    margin: 1rem;
+}
+
+.cover {
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+.polozka h3,p {
+    margin: 0;
+}
+
+.tlacitko {
+    display: block;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    background: rgba(173, 107, 255, 0.8);
+    border: 3px solid #ad6bff;
+    border-radius: 5px;
+}
+
+.tlacitko:hover {
+    color: white;
+    background: rgba(115, 84, 176, 0.8);
+    border: 3px solid #8a52ca;
+}
+
+/*-----------------------------------new---------------*/
+
+.obleceni {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.obleceni label {
+    position: relative;
+    margin: 1rem;
+    border: 3px solid #8a52ca;
+    border-radius: 5px;
+}
+
+.obleceni input {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.tricko {
+    height: 200px;
+}
+
+.tricko img {
+    position: relative;
+    top: -30px;
+    height: 200%;
+}
+
+.kalhoty {
+    height: 300px;
+}
+
+.kalhoty img {
+    position: relative;
+    top: -150px;
+    height: 150%;
+}
+
+#obleceni_odeslat {
+    display: block;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: #453b72;
+    background: rgba(173, 107, 255, 0.8);
+    border: 3px solid #ad6bff;
+    border-radius: 5px;
+}
+
+#obleceni_odeslat:hover {
+    color: white;
+    background: rgba(115, 84, 176, 0.8);
+    border: 3px solid #8a52ca;
+}
+
+/*---------------detail-------------------*/
+
+.detail {
+    display: flex;
+    justify-content: center;
+}
+
+.detail div {
+    margin: 0 1rem;
+}
+
+.detail_input {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail_input select, .detail_input input {
+    margin-bottom: 2rem;
+}
+
+
+
+
+/*-------------media---------------*/
+
+@media (max-width: 710px) {
+
+    .obrazek {
+        height: 250px;
+    }
+
+}
+
+@media (max-width: 580px) {
+
+    .polozka h3, .polozka p, .polozka a {
+        font-size: 0.8rem;
+    }
+
+    .button {
+        padding: 0.2rem;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        background: rgba(173, 107, 255, 0.8);
+        border: 2px solid #ad6bff;
+        border-radius: 5px;
+    }
+
+    .detail {
+        flex-wrap: wrap;
+    }
+
+    .detail_input label:first-child {
+        margin-top: 1rem;
+    }
+
+    .detail_input select, .detail_input input {
+        margin-bottom: 1rem;
+    }
+
+}
+
+@media (max-width: 530px) {
+
+    h1 {
+        padding: 1rem 0;
+    }
+
+    .navigace {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    main {
+        padding: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .seznam {
+        justify-content: center;
+    }
+
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styly.css" th:href="'css/styly.css'"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&amp;subset=latin-ext" rel="stylesheet">
+    <title>Panenky</title>
+</head>
+<body>
+    <!--/*@thymesVar id="seznamVrsku" type="java.util.List<java.lang.String>"*/-->
+    <!--/*@thymesVar id="seznamSpodku" type="java.util.List<java.lang.String>"*/-->
+
+    <div th:replace="~{includes/menu}"></div>
+
+    <main>
+
+    <form method="post">
+
+        <h2>Nová panenka</h2>
+        <label class="tricko">
+            Jméno:
+            <input type="text" name="jmeno" value="Fridolýna"/>
+        </label>
+
+        <h3>Vrchní díl: </h3>
+        <div class="obleceni">
+            <label class="tricko" th:each="polozka: ${seznamVrsku}">
+                <img src="../static/images/javagirl_top01.png" th:src="'images/' + ${polozka}">
+                <input type="radio" name="vrsek" value="javarigl_top01.png" th:value="${polozka}"/>
+            </label>
+            <label class="tricko" th:remove="all">
+                <img src="../static/images/javagirl_top02.png">
+                <input type="radio" name="vrsek" value="javarigl_top02.png"/>
+            </label>
+            <label class="tricko" th:remove="all">
+                <img src="../static/images/javagirl_top03.png">
+                <input type="radio" name="vrsek" value="javarigl_top03.png"/>
+            </label>
+        </div>
+
+        <h3>Spodní díl:</h3>
+        <div class="obleceni">
+            <label class="kalhoty" th:each="polozka: ${seznamSpodku}">
+                <img src="../static/images/javagirl_bottom01.png" th:src="'images/' + ${polozka}">
+                <input type="radio" name="spodek" value="javarigl_bottom01.png" th:value="${polozka}"/>
+            </label>
+            <label class="kalhoty" th:remove="all">
+                <img src="../static/images/javagirl_bottom02.png">
+                <input type="radio" name="spodek" value="javarigl_bottom02.png"/>
+            </label>
+            <label class="kalhoty" th:remove="all">
+                <img src="../static/images/javagirl_bottom03.png">
+                <input type="radio" name="spodek" value="javarigl_bottom03.png"/>
+            </label>
+        </div>
+        
+        <input id="obleceni_odeslat" type="submit" value="Uložit" class="tlacitko"/>
+    </form>
+
+    </main>
+    
+</body>
+</html>

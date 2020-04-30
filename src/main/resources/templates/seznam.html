@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styly.css" th:href="'css/styly.css'"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&amp;subset=latin-ext" rel="stylesheet">
+    <title>Panenky</title>
+</head>
+<body>
+    <!--/*@thymesVar id="seznamPanenek" type="java.util.List<cz.czechitas.webapp.Panenka>"*/-->
+    <!--/*@thymesVar id="casovaZona" type="java.time.ZoneId"*/-->
+
+    <div th:replace="~{includes/menu}"></div>
+
+    <main>
+
+	    <h2>Seznam existujících panenek</h2>
+
+	    <div class="seznam">
+	        <div class="polozka" th:each="jednaPanenka : ${seznamPanenek}">
+	            <h3 th:text="${jednaPanenka.jmeno}">Jméno</h3>
+	            <p th:text="${#temporals.format(jednaPanenka.casVzniku.atZone(casovaZona), 'd. M. yyyy, HH:mm:ss')}">Čas vzniku</p>
+	            <div class="obrazek">
+	                <img src="../static/images/javagirl_background.png" th:src="'images/javagirl_background.png'">
+	                <img th:if="${jednaPanenka.vrsek != ''}" class="cover" src="../static/images/javagirl_top01.png" th:src="'images/' + ${jednaPanenka.vrsek}">
+	                <img th:if="${jednaPanenka.spodek != ''}" class="cover" src="../static/images/javagirl_bottom01.png" th:src="'images/' + ${jednaPanenka.spodek}">
+	            </div>
+	            <form method="post" th:action="${jednaPanenka.id}">
+	                <input type="hidden" name="_method" value="delete"/>
+	                <input type="submit" value="Smazat" class="tlacitko"/>
+	            </form>
+	        </div>
+	    </div>
+
+    </main>
+
+</body>
+</html>
